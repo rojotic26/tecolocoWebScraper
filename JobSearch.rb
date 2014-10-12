@@ -4,7 +4,7 @@ module JobSearch
   # This class get the category of jobs you are looking for and
   # return a hash of job offers information.
   class Tecoloco
-    
+
     # Variables
     TITLE_JOB = "//div[@class = 'plaza']//a[@class = 'oferta-trabajo']"
     CITY_JOB = "//div[@class = 'plaza']//span[@class = 'ciudad-trabajo']"
@@ -12,17 +12,17 @@ module JobSearch
     DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
 
     URL = 'http://www.tecoloco.com'
-  
+
     # Function to obtain the whole information of the job offers at tecoloco
     def self.getJobs(category)
-      doc = get_html(category)
+      doc = getHtml(category)
       titles = get_titles(doc)
       dates = get_dates(doc)
       cities = get_cities(doc)
       details = get_details(doc)
-      integrate (titles,dates, cities, details)
+      integrate(titles, dates, cities, details)
     end
-  
+
     # Function to get the url of tecoloco
     def self.getHtml(category)
       url = "#{URL}/#{category}"
@@ -30,7 +30,7 @@ module JobSearch
 
     # Function to obtain the titles of the job offers at tecoloco
     def self.get_titles(document)
-      titles = document.xpath(TITLE_JOB) 
+      titles = document.xpath(TITLE_JOB)
       titles.map { |t| t.text }
     end
 
@@ -42,7 +42,7 @@ module JobSearch
 
     # Function to obtain the cities of the job offers at tecoloco
     def self.get_cities(document)
-      cities = document.xpath(CITY_JOB) 
+      cities = document.xpath(CITY_JOB)
       cities.map { |c| c.text }
     end
 
@@ -60,4 +60,5 @@ module JobSearch
       Hash[jobs_array]
     end
 
+end
 end
