@@ -4,6 +4,6 @@ category = ARGV[0]
 
 jobs_found = JobSearch::Tecoloco.getJobs(category)
 
-jobs_found.each do |title, date, cities, details|
-  puts "Job offer: '#{title}' until #{date}."
+jobs_found.each do |title, date, city, detail|
+  puts "Job offer:#{title} in #{city} until #{date}."
 end
