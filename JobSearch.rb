@@ -33,10 +33,15 @@ class Tecoloco
   end
 
   # Function to obtain dates of the job offers at tecoloco
-
   def self.get_dates(document)
    dates = document.xpath(DATE_XPATH)
    dates.map { |d| Date.parse(d) }
+  end
+
+  # Function to obtain details of the job offers at tecoloco
+  def self.get_details(document)
+   details = document.xpath(DETAIL_JOB)
+   details.map { |dt| dt.text }
   end
 
   # Function to integrate the data of job offers in a hash by category
