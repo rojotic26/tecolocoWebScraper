@@ -36,7 +36,7 @@ module JobSearch
 
     # Function to obtain dates of the job offers at tecoloco
     def self.get_dates(document)
-      dates = document.xpath(DATE_XPATH)
+      dates = document.xpath(DATE_JOB)
       dates.map { |d| Date.parse(d) }
     end
 
