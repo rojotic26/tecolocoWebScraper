@@ -8,7 +8,7 @@ extec: This file is our executable file.
 GemFile: This file is just to specified which gems we are using.
 
 THis is an example to run our code:
-ruby extec.rb 'marketing-ventas'
+./extec 'marketing-ventas'
 
 Our team-members are:
 Mauricio Jaime - mjboyarov@gmail.com / Nicaragua
