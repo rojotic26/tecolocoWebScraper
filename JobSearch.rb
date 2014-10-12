@@ -21,16 +21,23 @@ class Tecoloco
    integrate (titles,dates, cities, details)
   end
   
+  # Function to get the url of tecoloco
   def self.getHtml(category)
    url = "#{URL}/#{category}"
   end
 
   # Function to obtain the titles of the job offers at tecoloco
   def self.get_titles(document)
-    titles = document.xpath(TITLE_JOB) 
-    titles.map { |t| t.text }
+   titles = document.xpath(TITLE_JOB) 
+   titles.map { |t| t.text }
   end
 
+  # Function to obtain dates of the job offers at tecoloco
+
+  def self.get_dates(document)
+   dates = document.xpath(DATE_XPATH)
+   dates.map { |d| Date.parse(d) }
+  end
 
 
 
