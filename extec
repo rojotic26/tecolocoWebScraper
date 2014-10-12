@@ -1,4 +1,6 @@
-require './JobSearch'
+#!/usr/bin/env ruby
+
+require 'JobSearch'
 fail ArgumentError, "Usage:  Job offers [category]\n" if ARGV.count == 0
 category = ARGV[0]
 
