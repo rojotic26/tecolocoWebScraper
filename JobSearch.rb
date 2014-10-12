@@ -11,7 +11,7 @@ module JobSearch
     DATE_JOB = "//div[@class = 'plaza']//div[@class = 'vigencia-trabajo']"
     DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
 
-    URL = 'http://www.tecoloco.com'
+    URL_TECOLOCO = 'http://www.tecoloco.com'
 
     # Function to obtain the whole information of the job offers at tecoloco
     def self.getJobs(category)
@@ -25,7 +25,8 @@ module JobSearch
 
     # Function to get the url of tecoloco
     def self.getHtml(category)
-      url = "#{URL}/#{category}"
+      url = "#{URL_TECOLOCO}/#{category}"
+      Nokogiri::HTML(open(url))
     end
 
     # Function to obtain the titles of the job offers at tecoloco
