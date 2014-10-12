@@ -9,9 +9,9 @@ module JobSearch
     TITLE_JOB = "//div[@class = 'plaza']//a[@class = 'oferta-trabajo']"
     CITY_JOB = "//div[@class = 'plaza']//span[@class = 'ciudad-trabajo']"
     DATE_JOB = "//div[@class = 'plaza']//div[@class = 'vigencia-trabajo']"
-    DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
-
-    URL_TECOLOCO = 'http://www.tecoloco.com'
+    #DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
+DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
+    URL_TECOLOCO = 'http://www.tecoloco.com/empleo-'
 
     # Function to obtain the whole information of the job offers at tecoloco
     def self.getJobs(category)
@@ -25,7 +25,7 @@ module JobSearch
 
     # Function to get the url of tecoloco
     def self.getHtml(category)
-      url = "#{URL_TECOLOCO}/#{category}"
+      url = "#{URL_TECOLOCO}#{category}"
       Nokogiri::HTML(open(url))
     end
 
