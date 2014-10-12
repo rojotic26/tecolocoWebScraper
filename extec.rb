@@ -2,7 +2,7 @@ require './JobSearch'
 fail ArgumentError, "Usage:  Job offers [category]\n" if ARGV.count == 0
 category = ARGV[0]
 
-jobs_found = JobSearch::Tecoloco.getJobs(category)
+jobs_found = JobSearch::Tecoloco.getjobs(category)
 
 jobs_found.each do |title, date, city|
   puts "Job offer:#{title} in #{city} until #{date}."
