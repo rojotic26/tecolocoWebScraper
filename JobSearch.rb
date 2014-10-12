@@ -39,6 +39,12 @@ class Tecoloco
    dates.map { |d| Date.parse(d) }
   end
 
+  # Function to integrate the data of job offers in a hash by category
+  def self.integrate(titles,dates,cities,details)
+    jobs_array = titles.each_with_index.map do |_,index|
+      [titles[index], dates[index], cities[index], details[index]]
+    end
+    Hash[jobs_array]
+  end
 
-
-
+end
