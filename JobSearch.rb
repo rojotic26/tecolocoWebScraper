@@ -54,9 +54,9 @@ module JobSearch
     # Function to integrate the data of job offers in a hash by category
     def self.integrate(titles, dates, cities, details)
       jobs_array = titles.each_with_index.map do |_, index, _, _|
-      [titles[index], dates[index], cities[index], details[index]]
-    end
+        [titles[index], dates[index], cities[index], details[index]]
+      end
       jobs_array
-   end
-end
+    end
+  end
 end
