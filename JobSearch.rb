@@ -4,18 +4,16 @@ module JobSearch
   # This class get the category of jobs you are looking for and
   # return a hash of job offers information.
   class Tecoloco
-
     # Variables
     TITLE_JOB = "//div[@class = 'plaza']//a[@class = 'oferta-trabajo']"
     CITY_JOB = "//div[@class = 'plaza']//span[@class = 'ciudad-trabajo']"
     DATE_JOB = "//div[@class = 'plaza']//div[@class = 'vigencia-trabajo']"
-    #DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
-DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
+    DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
     URL_TECOLOCO = 'http://www.tecoloco.com/empleo-'
 
     # Function to obtain the whole information of the job offers at tecoloco
-    def self.getJobs(category)
-      doc = getHtml(category)
+    def self.getjobs(category)
+      doc = gethtml(category)
       titles = get_titles(doc)
       dates = get_dates(doc)
       cities = get_cities(doc)
@@ -24,7 +22,7 @@ DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
     end
 
     # Function to get the url of tecoloco
-    def self.getHtml(category)
+    def self.gethtml(category)
       url = "#{URL_TECOLOCO}#{category}"
       Nokogiri::HTML(open(url))
     end
@@ -54,13 +52,11 @@ DETAIL_JOB = "//div[@class = 'plaza']//span[@class = 'detalle-trabajo']"
     end
 
     # Function to integrate the data of job offers in a hash by category
-    def self.integrate(titles,dates,cities,details)
-      jobs_array = titles.each_with_index.map do |_,index,_,_|
+    def self.integrate(titles, dates, cities, details)
+      jobs_array = titles.each_with_index.map do |_, index, _, _|
       [titles[index], dates[index], cities[index], details[index]]
-      end
-      jobs_array
-    #Hash[jobs_array]
     end
-
+      jobs_array
+   end
 end
 end
